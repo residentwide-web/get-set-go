@@ -1,7 +1,15 @@
 import streamlit as st
 import pandas as pd
 import os
-
+# Hide "Fork" and "GitHub" menu from Streamlit app
+hide_menu_style = """
+    <style>
+    #MainMenu {visibility: hidden;}  /* hides the hamburger menu */
+    footer {visibility: hidden;}     /* hides 'Made with Streamlit' */
+    header {visibility: hidden;}     /* hides the top right menu (GitHub & Fork) */
+    </style>
+"""
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 # ---------------- Fueling Requirements Function ----------------
 def fueling_requirements(sport_intensity: str, weight_kg: float, duration_hr: float):
     sport_carbs = {"light": (3, 5), "moderate": (5, 7), "endurance": (6, 10), "extreme": (8, 12)}
